@@ -19,6 +19,7 @@ class Counter extends React.Component{
             value: preState.value + 1
         }));
         this.props.onIncrease();
+        this.props.store.dispatch({ type: 'INCREMENT' });
     }
 
     handleReduce = ()=>{
@@ -26,10 +27,16 @@ class Counter extends React.Component{
             return {value: preState.value - 1}
         });
         this.props.onReduce();
+        this.props.store.dispatch({ type: 'DECREMENT' })
     }
 
     componentDidMount(){
         this.props.onRef(this)
+    }
+
+    componentWillUnmount(){
+        // use this.value to reduce or increase store value
+        // this.props.store.dispatch({ type: 'DECREMENT' })
     }
 
     // static getDerivedStateFromProps(props, state){
