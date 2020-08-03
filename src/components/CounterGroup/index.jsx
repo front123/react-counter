@@ -25,10 +25,13 @@ class CounterGroup extends React.Component{
                 element.reset();
             });  
         }
-        this.setState({
-            totalNumber: 0,
-            size: newSize
-        })
+        if (newSize !== this.state.size){
+            this.setState({
+                totalNumber: 0,
+                size: newSize
+            })
+        }
+        
     }
 
     handleIncrease = ()=>{
