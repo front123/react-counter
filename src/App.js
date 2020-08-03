@@ -3,14 +3,17 @@ import './App.css';
 import './components/Counter'
 import CounterGroup from './components/CounterGroup'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <CounterGroup />
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render(){
+     return (
+      <div className="App">
+        <header className="App-header">
+          <CounterGroup store={this.props.store}/>
+        </header>
+      </div>
+    )
+  }
+ 
 }
 
 export default App;
